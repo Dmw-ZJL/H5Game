@@ -1,12 +1,11 @@
-
 module.exports = {
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.module
-      .rule('vue')
-      .use('vue-loader')
-        .tap(options => {
-          // modify the options...
-          return options
-        })
-  }
-}
+      .rule("vue")
+      .use("vue-loader")
+      .tap((options) => {
+        // modify the options...
+        return options;
+      });
+  },
+};

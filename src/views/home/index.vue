@@ -1,14 +1,26 @@
 <template>
   <div class="home">
     <div class="header">
+      <div class="personal-details">
       <div class="avatar">
         <img src="./img/avatar.png" />
       </div>
       <div class="name">小周的前进之路</div>
+      </div>
+      <div class="link">
+        <a-icon class="header-icon" type="ant-design" style="color: #448ef7" @click="$tool.linkTo('outside','https://1x.antdv.com/docs/vue/introduce-cn/')" />
+        <a-icon class="header-icon" type="github" @click="$tool.linkTo('outside','https://github.com/Dmw-ZJL/H5Game')" />
+      </div>
     </div>
     <div class="home-template">
       <div class="template-box">
-        <a-card class="template-card" v-for="item in this.templateList.slice((page-1) * this.pageSize,this.page * this.pageSize)" :key="item.id" hoverable style="width: 240px" @click="templateHandler(item.to)">
+        <a-card 
+        class="template-card" 
+        v-for="item in this.templateList.slice((page-1) * this.pageSize,this.page * this.pageSize)" 
+        :key="item.id" 
+        hoverable 
+        style="width: 240px" 
+        @click="$tool.linkTo('inside',item.to)">
         <img
           slot="cover"
           alt="example"
@@ -21,13 +33,19 @@
         </a-card-meta>
       </a-card>
       </div>
-      <a-pagination class="template-pagination" :total="this.templateList.length" @change="pageChange" :current="this.page" :defaultPageSize="this.pageSize" />
+      <a-pagination 
+      class="template-pagination" 
+      :total="this.templateList.length" 
+      @change="pageChange" 
+      :current="this.page" 
+      :defaultPageSize="this.pageSize" />
     </div>
     <router-view></router-view>
   
   </div> 
 </template>
 <script>
+
 export default {
   name: "home",
   data() {
@@ -59,9 +77,6 @@ export default {
   },
   computed: {},
   methods: {
-    templateHandler(path){
-      this.$router.push(path)
-    },
     itemRender(current, type, originalElement) {
       if (type === 'prev') {
         return <a>Previous</a>;
@@ -93,24 +108,39 @@ export default {
       font-size: 22px;
       line-height: 100%;
       padding: 0 10px;
-      .avatar {
-        margin-top: 10px;
-        margin-right: 20px;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        overflow: hidden;
-        img {
+      justify-content: space-between;
+      .personal-details {
+        display: flex;
+        .avatar {
+          margin-top: 10px;
+          margin-right: 20px;
           width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          overflow: hidden;
+          img {
+            width: 45px;
+          }
+        }
+        .name {
+          display: flex;
+          align-items: center;
         }
       }
-      .name {
+      .link {
         display: flex;
         align-items: center;
+        .header-icon {
+          font-size: 30px;
+          margin-left: 15px;
+        }
       }
     }
     .home-template {
       margin-top: 100px;
+      .ant-card-bordered {
+        border: 0;
+      }
         .template-box {
           width: 1200px;
           margin: 0 auto;

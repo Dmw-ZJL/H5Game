@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Button v-if="!this.isStart" @click="startGame">welcome getStar !!!{{this.isStart}}</Button>
+        <a-button  type="primary" v-if="!this.isStart" @click="startGame">welcome getStar !!!{{this.isStart}}</a-button>
     </div>
 </template>
 <script>

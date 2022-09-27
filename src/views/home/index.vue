@@ -40,6 +40,7 @@
       :current="this.page" 
       :defaultPageSize="this.pageSize" />
     </div>
+    <div class="footer"></div>
     <router-view></router-view>
   
   </div> 
@@ -54,19 +55,19 @@ export default {
       pageSize:8,
       templateList:[
         {id:1, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        {id:2, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        {id:3, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        {id:4, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        {id:5, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        {id:6, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        {id:7, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        {id:8, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        {id:9, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        {id:10, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        {id:11, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        {id:12, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        {id:13, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        {id:14, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'}
+        // {id:2, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
+        // {id:3, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
+        // {id:4, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
+        // {id:5, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
+        // {id:6, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
+        // {id:7, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
+        // {id:8, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
+        // {id:9, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
+        // {id:10, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
+        // {id:11, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
+        // {id:12, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
+        // {id:13, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
+        // {id:14, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'}
       ],
     };
   },
@@ -93,6 +94,9 @@ export default {
 </script>
 <style lang="less" scoped>
   .home {
+    background-image: linear-gradient(90deg, #d3d5e2,#dddfef,#e2e4f0,#e2e5f0,#e2e5ef,#cccde0);
+    // background-color: #e0e4f1;
+    position: relative;
     .header {
       display: flex;
       width: 100%;
@@ -109,6 +113,7 @@ export default {
       line-height: 100%;
       padding: 0 10px;
       justify-content: space-between;
+      filter: drop-shadow(2px 4px 6px #999);
       .personal-details {
         display: flex;
         .avatar {
@@ -137,7 +142,8 @@ export default {
       }
     }
     .home-template {
-      margin-top: 100px;
+      padding-top: 100px;
+      padding-bottom: 60px;
       .ant-card-bordered {
         border: 0;
       }
@@ -148,6 +154,11 @@ export default {
           grid-template-columns: repeat(4, 25%);
           .template-card {
             margin: 0 auto 30px;
+            background-color: transparent;
+            &:hover {
+              background-color: #fff;
+              transition: 1.5s;
+            }
           }
           .meta-GameBox {
             text-align: center;
@@ -158,7 +169,21 @@ export default {
         }
       
     }
-    
+    .footer {
+      width: 100%;
+      height: 588px;
+      background: url(./img/bg.jpeg) no-repeat 50% 100% #e0e4f1;
+      background-size: cover;
+      &::before {
+        content: '';
+        width: 100%;
+        height: 40px;
+        filter: blur(20px);
+        background-color: #e2e4f0;
+        position: absolute;
+        bottom: 50%;
+      }
+    }
     
   }
 

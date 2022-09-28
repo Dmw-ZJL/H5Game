@@ -3,7 +3,7 @@
         <div class="template-box">
             <a-card 
             class="template-card" 
-            v-for="item in this.templateList.slice((page-1) * this.pageSize,this.page * this.pageSize)" 
+            v-for="item in this.$parent.templateList.slice((page-1) * this.$parent.pageSize,this.$parent.page * this.$parent.pageSize)" 
             :key="item.id" 
             hoverable 
             style="width: 240px" 
@@ -13,27 +13,28 @@
             alt="example"
             src="./img/gameBox.png"
             />
-            <a-card-meta title="GameBox" class="meta-GameBox">
+            <a-card-meta :title="item.name" class="meta-GameBox">
             <template slot="description">
-                <router-link to="/gameBox" >Click To Enter</router-link>
+                <router-link :to="item.to" >Click To Enter</router-link>
             </template>
             </a-card-meta>
         </a-card>
         </div>
         <a-pagination 
         class="template-pagination" 
-        :total="this.templateList.length" 
+        :total="this.$parent.templateList.length" 
         @change="pageChange" 
-        :current="this.page" 
-        :defaultPageSize="this.pageSize" />
+        :current="this.$parent.page" 
+        :defaultPageSize="this.$parent.pageSize" />
     </div>
 </template>
 <script>
 export default{
     name:'home-template',
+    props:[''],
     data () {
         return {
-                
+                aaa:'888'
         }
     },
     created () {
@@ -46,7 +47,6 @@ export default{
 </script>
 <style lang='less'  scoped>
     .home-template {
-      padding-top: 100px;
       padding-bottom: 60px;
       .ant-card-bordered {
         border: 0;

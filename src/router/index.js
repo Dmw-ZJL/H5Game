@@ -33,14 +33,12 @@ export const router = new Router({
           component: HomeTemplate,
         },
         {
-          path: "/gameBox",
+          path: "gameBox",
           name: "gameBox",
           component: GameBox,
         },
-        
+        ...gameBoxRouter
       ]
     },
-    
-    ...gameBoxRouter
   ],
 });

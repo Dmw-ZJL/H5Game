@@ -12,7 +12,7 @@
         <a-icon class="header-icon" type="github" @click="$tool.linkTo('outside','https://github.com/Dmw-ZJL/H5Game')" />
       </div>
     </div>
-    <router-view></router-view>
+    <router-view />
     <div class="footer"></div>
   </div> 
 </template>
@@ -43,9 +43,10 @@ export default {
     };
   },
   created() {
+  
   },
   updated() {
-    console.log(this.page);
+  
   },
   computed: {},
   methods: {
@@ -67,6 +68,7 @@ export default {
   .home {
     background-image: linear-gradient(90deg, #d3d5e2,#dddfef,#e2e4f0,#e2e5f0,#e2e5ef,#cccde0);
     // background-color: #e0e4f1;
+    padding-top: 100px;
     position: relative;
     .header {
       display: flex;

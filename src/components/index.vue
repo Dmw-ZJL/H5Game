@@ -13,6 +13,7 @@ export default {
       platforms: "",
       player: "",
       cursors: "",
+      stars: "",
     };
   },
   created() {},
@@ -35,6 +36,7 @@ export default {
         preload: preload,
         create: create,
         update: update,
+        collectStar: collectStar,
       },
     });
 
@@ -55,20 +57,19 @@ export default {
     function create() {
       this.cursors = this.input.keyboard.createCursorKeys();
       this.add.image(400, 300, "sky");
-      console.log(this, "this");
+
+      // 平台
       this.platforms = this.physics.add.staticGroup();
-
       this.platforms.create(400, 568, "ground").setScale(2).refreshBody();
-
       this.platforms.create(600, 400, "ground");
       this.platforms.create(50, 250, "ground");
       this.platforms.create(750, 220, "ground");
-
+      // 人物
       this.player = this.physics.add.sprite(100, 450, "dude");
       this.player.setBounce(0.3);
       this.player.setCollideWorldBounds(true);
       this.player.body.setGravityY(300);
-      this.physics.add.collider(this.player, this.platforms);
+
       this.anims.create({
         key: "left",
         frames: this.anims.generateFrameNumbers("dude", { start: 0, end: 3 }),
@@ -88,6 +89,27 @@ export default {
         frameRate: 10,
         repeat: -1,
       });
+
+      // 星星
+      this.stars = this.physics.add.group({
+        key: "star",
+        repeat: 11,
+        setXY: { x: 12, y: 0, stepX: 70 },
+      });
+      this.stars.children.iterate(function (child) {
+        console.log(child, "child");
+        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+      });
+
+      this.physics.add.collider(this.player, this.platforms);
+      this.physics.add.collider(this.stars, this.platforms);
+      this.physics.add.overlap(
+        this.player,
+        this.stars,
+        this.collectStar,
+        null,
+        this
+      );
     }
 
     function update() {
@@ -105,6 +127,9 @@ export default {
       if (this.cursors.up.isDown && this.player.body.touching.down) {
         this.player.setVelocityY(-530);
       }
+    }
+    function collectStar(player, star) {
+      star.disableBody(true, true);
     }
   },
 };

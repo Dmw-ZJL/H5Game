@@ -25,20 +25,7 @@ export default {
       page:1,
       pageSize:8,
       templateList:[
-        {id:1, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        // {id:2, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        // {id:3, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        // {id:4, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        // {id:5, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        // {id:6, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        // {id:7, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        // {id:8, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        // {id:9, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        // {id:10, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        // {id:11, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        // {id:12, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        // {id:13, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'},
-        // {id:14, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'}
+        {id:1, name:'GameBox', img:'./img/gameBox.png',to:'/gameBox'}
       ],
     };
   },
@@ -69,7 +56,6 @@ export default {
     background-image: linear-gradient(90deg, #d3d5e2,#dddfef,#e2e4f0,#e2e5f0,#e2e5ef,#cccde0);
     // background-color: #e0e4f1;
     padding-top: 100px;
-    position: relative;
     .header {
       display: flex;
       width: 100%;
@@ -116,6 +102,7 @@ export default {
     }
     
     .footer {
+      position: relative;
       width: 100%;
       height: 588px;
       background: url(./img/bg.jpeg) no-repeat 50% 100% #e0e4f1;
@@ -127,7 +114,7 @@ export default {
         filter: blur(20px);
         background-color: #e2e4f0;
         position: absolute;
-        bottom: 50%;
+        top: 0;
       }
     }
     

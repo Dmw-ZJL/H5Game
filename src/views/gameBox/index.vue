@@ -37,6 +37,7 @@ export default{
         .gameBox-list {
             width: 700px;
             margin: 0 auto;
+            margin-bottom: 180px;
             ul {
                 display: flex;
                 justify-content: center;

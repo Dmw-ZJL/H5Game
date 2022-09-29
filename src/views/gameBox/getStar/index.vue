@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="getStar">
         <a-button  type="primary" v-if="!this.isStart" @click="startGame">welcome getStar !!!{{this.isStart}}</a-button>
     </div>
 </template>
@@ -19,7 +19,10 @@ export default{
     };
   },
   created() {
-
+   
+  },
+  updated() {
+    console.log(this.game.scale.fullscreenTarget);
   },
   computed: {},
   methods: {
@@ -29,6 +32,7 @@ export default{
           type: Phaser.AUTO,
           width: 800,
           height: 600,
+          parent: document.querySelector('.getStar'),
           physics: {
             default: "arcade",
             arcade: {
@@ -46,7 +50,7 @@ export default{
 
         function preload() {
           this.load.setBaseURL(
-            "https://crh-1309634948.cos.ap-shanghai.myqcloud.com"
+            "https://crh-1309634948.cos.ap-shanghai.myqcloud.com/resource"
           );
           this.load.image("sky", "/sky.png");
           this.load.image("ground", "/platform.png");
@@ -145,5 +149,13 @@ export default{
 }
 </script>
 <style lang='less'  scoped>
-        
+    .getStar {
+      width: 800px;
+      height: 600px;
+      margin: 0 auto;
+      margin-bottom:100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 </style>
